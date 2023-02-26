@@ -38,6 +38,7 @@ export default function AuthForm({ mode }: { mode: "register" | "signin" }) {
       try {
         if (mode === "register") {
           await register(formState);
+          console.log("registered");
         } else {
           await signin(formState);
         }
@@ -128,8 +129,6 @@ export default function AuthForm({ mode }: { mode: "register" | "signin" }) {
             <div>
               <span>
                 <Link
-                  // When user clicked, it's faster. Do req ahead of time.
-                  prefetch
                   href={content.linkUrl}
                   className="text-blue-600 font-bold"
                 >
