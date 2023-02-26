@@ -20,7 +20,7 @@ const fetcher = async ({ url, method, body, json = true }) => {
 
 export const register = async (user) => {
   return fetcher({
-    url: "/api/register",
+    url: "/register",
     method: "POST",
     body: user,
     json: false,
@@ -29,7 +29,7 @@ export const register = async (user) => {
 
 export const signin = async (user) => {
   return fetcher({
-    url: "/api/signin",
+    url: "/signin",
     method: "POST",
     body: user,
     json: false,
