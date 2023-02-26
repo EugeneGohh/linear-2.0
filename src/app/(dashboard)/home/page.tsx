@@ -13,11 +13,11 @@ import { Suspense } from "react";
 
 const getData = async () => {
   await delay(2000);
-  const user = await getUserFromCookie(cookies());
+  // const user = await getUserFromCookie(cookies());
 
   const projects = await db.project.findMany({
     where: {
-      ownerId: user?.id,
+      ownerId: "3929fa1f-b64d-4df8-bd31-431bd4a57e68",
     },
     include: {
       tasks: true,
@@ -29,6 +29,7 @@ const getData = async () => {
 
 export default async function Home() {
   const { projects } = await getData();
+  console.log(projects, "projects");
 
   return (
     <div className="h-full overflow-y-auto pr-6 w-full">
@@ -37,24 +38,19 @@ export default async function Home() {
           {/* <Suspense fallback={<GreetingsSkeleton />}>
             <Greeting />
           </Suspense> */}
-          Test test
         </div>
         <div className="flex flex-2 grow items-center flex-wrap mt-3 -m-3 ">
-          {projects.map((project) => (
+          {/* {projects.map((project) => (
             <div className="w-1/3 p-3" key={project.id}>
               <Link href={`/project/${project.id}`}>
-                {/* <ProjectCard project={project} /> */}
+                <ProjectCard project={project} />
               </Link>
             </div>
-          ))}
-          <div className="w-1/3 p-3">
-            {/* <NewProject /> */}
-          </div>
+          ))} */}
+          <div className="w-1/3 p-3">{/* <NewProject /> */}</div>
         </div>
         <div className="mt-6 flex-2 grow w-full flex">
-          <div className="w-full">
-            {/* <TaskCard /> */}
-          </div>
+          <div className="w-full">{/* <TaskCard /> */}</div>
         </div>
       </div>
     </div>
